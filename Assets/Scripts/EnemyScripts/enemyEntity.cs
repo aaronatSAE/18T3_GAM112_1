@@ -28,6 +28,7 @@ public class enemyEntity : MonoBehaviour {
     public LayerMask enemyMask;
     private Rigidbody2D rb2d; // The name of the Rigidbody we'll use
     private Transform myTransform;
+    [SerializeField]
     private GameObject player;
 
 
@@ -55,6 +56,7 @@ public class enemyEntity : MonoBehaviour {
         if(TargetPlayer == true)
         {
             facePlayer();
+                        Debug.Log("haha");
         }
 
         //Checks if ground is in front of them
@@ -205,10 +207,12 @@ public class enemyEntity : MonoBehaviour {
         if (player.transform.position.x > this.transform.position.x)
 
         {
+            Debug.Log("Left");
             CurrRot.y = 180;
         }else
         {
             CurrRot.y = 0;
+            Debug.Log("Right");
         }
 
 

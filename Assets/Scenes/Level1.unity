@@ -116,9 +116,9 @@ NavMeshSettings:
 --- !u!1 &456690731
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 456690733}
   - component: {fileID: 456690732}
@@ -132,7 +132,7 @@ GameObject:
 --- !u!114 &456690732
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456690731}
   m_Enabled: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
 --- !u!4 &456690733
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456690731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -157,9 +157,9 @@ Transform:
 --- !u!1 &833884859
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 833884861}
   - component: {fileID: 833884860}
@@ -173,7 +173,7 @@ GameObject:
 --- !u!212 &833884860
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833884859}
   m_Enabled: 1
@@ -215,10 +215,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!4 &833884861
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833884859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -237,15 +238,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4789825916372560, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.817
+      value: -0.8202
       objectReference: {fileID: 0}
     - target: {fileID: 4789825916372560, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.395
+      value: -1.3459
       objectReference: {fileID: 0}
     - target: {fileID: 4789825916372560, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4789825916372560, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -271,9 +272,14 @@ Prefab:
       propertyPath: m_Name
       value: Enemy:CagedWalker
       objectReference: {fileID: 0}
+    - target: {fileID: 212903531576951548, guid: a1e273ce06b3116428e252e402b6b98c,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
-  m_IsPrefabParent: 0
+  m_SourcePrefab: {fileID: 100100000, guid: a1e273ce06b3116428e252e402b6b98c, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1069878210
 Prefab:
   m_ObjectHideFlags: 0
@@ -314,19 +320,19 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8c62eeab5178cbe4fac54f86e913c000, type: 2}
-  m_IsPrefabParent: 0
+  m_SourcePrefab: {fileID: 100100000, guid: 8c62eeab5178cbe4fac54f86e913c000, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1226116405
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1226116408}
   - component: {fileID: 1226116407}
   - component: {fileID: 1226116406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -336,7 +342,7 @@ GameObject:
 --- !u!61 &1226116406
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1226116405}
   m_Enabled: 1
@@ -361,7 +367,7 @@ BoxCollider2D:
 --- !u!212 &1226116407
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1226116405}
   m_Enabled: 1
@@ -392,7 +398,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -403,14 +409,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!4 &1226116408
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1226116405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.631, z: 1}
+  m_LocalPosition: {x: 0, y: -1.631, z: 0}
   m_LocalScale: {x: 50, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -456,5 +463,5 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
-  m_IsPrefabParent: 0
+  m_SourcePrefab: {fileID: 100100000, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
+  m_IsPrefabAsset: 0
