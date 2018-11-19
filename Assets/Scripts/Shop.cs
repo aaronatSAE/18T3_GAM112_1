@@ -15,6 +15,8 @@ public class Shop : MonoBehaviour {
     {
 
         shopMenu.SetActive(false);
+        player = GameObject.FindWithTag("Player");
+        shopMenu = GameObject.FindWithTag("ShopMenu");
 
     }
 

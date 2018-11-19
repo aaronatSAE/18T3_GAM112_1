@@ -8,6 +8,10 @@ TagManager:
   - Platform
   - Star
   - Enemy1
+  - PickupZone
+  - AttachedEnemy1
+  - Enemy2
+  - AttachedEnemy2
   layers:
   - Default
   - TransparentFX

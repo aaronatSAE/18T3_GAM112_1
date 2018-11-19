@@ -22,6 +22,8 @@ public class EnemyPickup : MonoBehaviour {
     {
 
         rb = self.gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+        pickupArea = GameObject.FindWithTag("PickupZone").transform;
 
     }
 
