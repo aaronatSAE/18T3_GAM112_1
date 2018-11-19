@@ -147,8 +147,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889211504036022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.89, y: 2.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.99, y: -0.84, z: 0}
+  m_LocalScale: {x: 1.019036, y: 1.019036, z: 1.019036}
   m_Children:
   - {fileID: 4695018651026886}
   - {fileID: 4529952886179546}
@@ -211,7 +211,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -316,7 +316,7 @@ MonoBehaviour:
   player: {fileID: 0}
   pickupArea: {fileID: 0}
   isAttached: 0
-  throwForceX: 10
+  throwForceX: 7
   throwForceY: 3
 --- !u!114 &114892691121859316
 MonoBehaviour:
@@ -332,7 +332,11 @@ MonoBehaviour:
   isDead: 0
   deathTimer: 5
   deathTimerRemaining: 0
+  moveTimerMax: 2
+  moveSpeed: 2
+  moveDirection: 0
   deadSprite: {fileID: 1869704122669668}
+  rb: {fileID: 50821428962507870}
 --- !u!114 &114913800031262394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,7 +522,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7dd16c7210aa60342b1a4b2e640bed2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
