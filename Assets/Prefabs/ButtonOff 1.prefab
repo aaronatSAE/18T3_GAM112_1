@@ -23,12 +23,12 @@ GameObject:
   - component: {fileID: 114002999275309372}
   - component: {fileID: 61408735935979776}
   m_Layer: 0
-  m_Name: ButtonOff
+  m_Name: ButtonOff 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4324320889459394
 Transform:
   m_ObjectHideFlags: 1
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1789269855679898, guid: 795e4746f9f3e1b4ab0661afd9276b14, type: 2}
+  button: {fileID: 0}
   maxTimer: 5
-  isPressed: 1
 --- !u!212 &212042419185401054
 SpriteRenderer:
   m_ObjectHideFlags: 1

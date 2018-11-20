@@ -1224,7 +1224,7 @@ MonoBehaviour:
   shopDetector: {fileID: 0}
   shopMenu: {fileID: 402801161}
   player: {fileID: 0}
-  capeCost: 0
+  capeCost: 3
 --- !u!114 &1004289243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73c878321f2384996be51a1b2ab630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starcount: 0
   starText: {fileID: 646224139}
   starCount: 0
 --- !u!114 &1056759417
@@ -2253,7 +2254,7 @@ MonoBehaviour:
   playerLivesText: {fileID: 930984241}
   gameCurrencyText: {fileID: 0}
   gameStarsText: {fileID: 646224139}
-  door: {fileID: 0}
+  door: {fileID: 1789269855679898, guid: 795e4746f9f3e1b4ab0661afd9276b14, type: 2}
 --- !u!114 &2068661415
 MonoBehaviour:
   m_ObjectHideFlags: 0

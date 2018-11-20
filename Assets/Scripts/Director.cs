@@ -32,6 +32,7 @@ public class Director : MonoBehaviour {
         gameCurrency = 0;
         gameStars = 0;
         gameLevelStars = 0;
+        door.SetActive(true);
 
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
@@ -47,30 +48,53 @@ public class Director : MonoBehaviour {
 
         if (gameStars >= gameLevelStars)
         {
-            CompleteLevel();
+            
+            DoorOpen(); 
+            //CompleteLevel();
 
         }
 
     }
 
-
-   public void CompleteLevel()
+    public void DoorOpen()
     {
-
+        
         gameLevel += 1;
         gameStars = 0;
-        if (gameLevel == 9)
+        //door.gameObject.GetComponent<Open>().isOpen = true;
+
+        if (gameLevel == 3)
         {
             gameLevel = 1;
             gameWorld += 1;
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        door.gameObject.GetComponent<Open>().isOpen = true;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
         playerLivesText.text = ("Lives:" + playerLives);
-
     }
+
+
+   //public void CompleteLevel()
+   // {
+
+   //     gameLevel += 1;
+   //     gameStars = 0;
+   //     if (gameLevel == 3)
+   //     {
+   //         gameLevel = 1;
+   //         gameWorld += 1;
+   //     }
+
+   //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+   //     gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
+   //     gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+   //     playerLivesText.text = ("Lives:" + playerLives);
+
+   // }
 
     public void ReloadLevel()
     {
