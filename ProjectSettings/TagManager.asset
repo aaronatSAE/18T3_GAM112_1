@@ -13,6 +13,8 @@ TagManager:
   - Enemy2
   - AttachedEnemy2
   - ShopDetector
+  - OpenDoor
+  - ClosedDoor
   layers:
   - Default
   - TransparentFX

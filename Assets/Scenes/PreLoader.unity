@@ -1425,9 +1425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73c878321f2384996be51a1b2ab630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starcount: 0
-  starText: {fileID: 646224139}
   starCount: 0
+  starText: {fileID: 646224139}
 --- !u!114 &1056759417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2254,7 +2253,9 @@ MonoBehaviour:
   playerLivesText: {fileID: 930984241}
   gameCurrencyText: {fileID: 0}
   gameStarsText: {fileID: 646224139}
-  door: {fileID: 1789269855679898, guid: 795e4746f9f3e1b4ab0661afd9276b14, type: 2}
+  doorClosed: {fileID: 0}
+  doorOpen: {fileID: 0}
+  player: {fileID: 1056759415}
 --- !u!114 &2068661415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,7 +2279,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

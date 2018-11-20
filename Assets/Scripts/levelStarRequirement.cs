@@ -15,7 +15,7 @@ public class levelStarRequirement : MonoBehaviour {
         directorscript = director.GetComponent<Director>();
 
         directorscript.gameLevelStars = starcount;
-        directorscript.updateStars();
+        //directorscript.updateStars();
 
 
     }

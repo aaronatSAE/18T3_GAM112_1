@@ -20,7 +20,9 @@ public class Director : MonoBehaviour {
     public Text gameCurrencyText;
     public Text gameStarsText;
 
-    public GameObject door;
+    public GameObject doorClosed;
+    public GameObject doorOpen;
+    public GameObject player;
 
 
 	// Use this for initialization
@@ -32,7 +34,6 @@ public class Director : MonoBehaviour {
         gameCurrency = 0;
         gameStars = 0;
         gameLevelStars = 0;
-        door.SetActive(true);
 
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
@@ -44,33 +45,42 @@ public class Director : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        doorOpen = GameObject.FindWithTag("OpenDoor");
+        doorClosed = GameObject.FindWithTag("ClosedDoor");
 
-
-        if (gameStars >= gameLevelStars)
+        if (player.gameObject.GetComponent<StarController>().starCount >= gameLevelStars)
         {
             
             DoorOpen(); 
             //CompleteLevel();
 
         }
+        else
+        {
+            doorOpen.SetActive(false);
+            doorClosed.SetActive(true);
+        }
 
     }
 
     public void DoorOpen()
     {
-        
-        gameLevel += 1;
-        gameStars = 0;
+
+        doorOpen.SetActive(true);
+        doorClosed.SetActive(false);
+
+        //gameLevel += 1;
+        //gameStars = 0;
+        ////door.gameObject.GetComponent<Open>().isOpen = true;
+
+        //if (gameLevel == 3)
+        //{
+        //    gameLevel = 1;
+        //    gameWorld += 1;
+        //}
+
+
         //door.gameObject.GetComponent<Open>().isOpen = true;
-
-        if (gameLevel == 3)
-        {
-            gameLevel = 1;
-            gameWorld += 1;
-        }
-
-
-        door.gameObject.GetComponent<Open>().isOpen = true;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
@@ -125,17 +135,17 @@ public class Director : MonoBehaviour {
 
     }
 
-    public void getStar()
-    {
+    //public void getStar()
+    //{
 
-        gameStars += 1;
-        gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
-    }
+    //    gameStars += 1;
+    //    gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+    //}
 
-    public void updateStars()
-    {
-        gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
-    }
+    //public void updateStars()
+    //{
+    //    gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+    //}
 
     public void gameOver()
     {

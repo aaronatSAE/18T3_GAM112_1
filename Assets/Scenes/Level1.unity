@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32cf52060a97714a9cd199abf1e9584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starcount: 4
+  starcount: 3
 --- !u!4 &456690733
 Transform:
   m_ObjectHideFlags: 0
@@ -1395,11 +1395,11 @@ GameObject:
   - component: {fileID: 973966264}
   m_Layer: 0
   m_Name: End Of Level Door Opened
-  m_TagString: Untagged
+  m_TagString: OpenDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &973966263
 Transform:
   m_ObjectHideFlags: 0
@@ -1413,18 +1413,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &973966264
-BoxCollider:
+--- !u!61 &973966264
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 973966262}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.695, y: 2.075}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 3.39, y: 4.15}
+    newSize: {x: 3.39, y: 4.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.39, y: 4.15, z: 0.2}
-  m_Center: {x: 1.695, y: 2.075, z: 0}
+  m_Size: {x: 3.39, y: 4.15}
+  m_EdgeRadius: 0
 --- !u!212 &973966265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2535,27 +2548,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 212999957073792728, guid: 39706bdcd1f36fb4b8513cfb8b999c24,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1324491374065366, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654299466340434, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654299466340434, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654299466340434, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.08
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39706bdcd1f36fb4b8513cfb8b999c24, type: 2}
   m_IsPrefabAsset: 0
@@ -3468,7 +3460,7 @@ GameObject:
   - component: {fileID: 2003448763}
   m_Layer: 0
   m_Name: End Of Level Door Closed
-  m_TagString: Untagged
+  m_TagString: ClosedDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3486,18 +3478,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2003448763
-BoxCollider:
+--- !u!61 &2003448763
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2003448761}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.695, y: 2.075}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 3.39, y: 4.15}
+    newSize: {x: 3.39, y: 4.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.39, y: 4.15, z: 0.2}
-  m_Center: {x: 1.695, y: 2.075, z: 0}
+  m_Size: {x: 3.39, y: 4.15}
+  m_EdgeRadius: 0
 --- !u!212 &2003448764
 SpriteRenderer:
   m_ObjectHideFlags: 0
