@@ -8,14 +8,21 @@ public class StarController : MonoBehaviour {
     public int starCount;
     public Text starText;
 
+    protected GameObject levelRequirement;
+    protected GameObject director;
+
     private void Start()
     {
-        
+
+        director = GameObject.Find("EventSystem");
+
+        starText.text = ("Stars:" + starCount + "/" + director.gameObject.GetComponent<Director>().gameLevelStars);
+
     }
 
     private void Update()
     {
-        
+        levelRequirement = GameObject.Find("LevelStarRequirement");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +32,7 @@ public class StarController : MonoBehaviour {
         {
             AddStar();
             Destroy(collision.gameObject);
+            levelRequirement.gameObject.GetComponent<levelStarRequirement>().starsInLevel = levelRequirement.gameObject.GetComponent<levelStarRequirement>().starsInLevel - 1;
         }
 
     }
@@ -33,6 +41,7 @@ public class StarController : MonoBehaviour {
     {
 
         starCount = starCount + 1;
+        starText.text = ("Stars:" + starCount + "/" + director.gameObject.GetComponent<Director>().gameLevelStars);
 
     }
 

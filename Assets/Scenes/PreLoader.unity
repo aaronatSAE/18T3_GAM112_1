@@ -633,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starcount: 0
+  starsInLevel: 0
 --- !u!4 &456690733
 Transform:
   m_ObjectHideFlags: 0

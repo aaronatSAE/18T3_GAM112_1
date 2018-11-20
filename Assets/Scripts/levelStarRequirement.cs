@@ -5,6 +5,7 @@ using UnityEngine;
 public class levelStarRequirement : MonoBehaviour {
 
     public float starcount;
+    public float starsInLevel; // make this the same as starcount in each scene 
     protected GameObject director;
     protected Director directorscript;
 

@@ -24,6 +24,8 @@ public class Director : MonoBehaviour {
     public GameObject doorOpen;
     public GameObject player;
 
+    protected GameObject levelStarRequirement;
+
 
 	// Use this for initialization
 	void Start () {
@@ -39,14 +41,16 @@ public class Director : MonoBehaviour {
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
         playerLivesText.text = ("Lives:" + playerLives);
 
+       
+
 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        doorOpen = GameObject.FindWithTag("OpenDoor");
         doorClosed = GameObject.FindWithTag("ClosedDoor");
+        levelStarRequirement = GameObject.Find("LevelStarRequirement");
 
         if (player.gameObject.GetComponent<StarController>().starCount >= gameLevelStars)
         {
@@ -55,19 +59,17 @@ public class Director : MonoBehaviour {
             //CompleteLevel();
 
         }
-        else
-        {
-            doorOpen.SetActive(false);
-            doorClosed.SetActive(true);
-        }
+
 
     }
 
     public void DoorOpen()
     {
 
-        doorOpen.SetActive(true);
-        doorClosed.SetActive(false);
+        doorClosed.gameObject.GetComponent<FinishDoor>().hasEnoughStars = true;
+        Debug.Log("Got Enough Stars");
+
+        doorClosed.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
         //gameLevel += 1;
         //gameStars = 0;
