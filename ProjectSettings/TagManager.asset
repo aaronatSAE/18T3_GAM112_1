@@ -12,6 +12,7 @@ TagManager:
   - AttachedEnemy1
   - Enemy2
   - AttachedEnemy2
+  - ShopDetector
   layers:
   - Default
   - TransparentFX

@@ -16,14 +16,14 @@ public class Shop : MonoBehaviour {
 
         shopMenu.SetActive(false);
         player = GameObject.FindWithTag("Player");
-        shopMenu = GameObject.FindWithTag("ShopMenu");
+        //shopMenu = GameObject.FindWithTag("ShopMenu");
 
     }
 
     public void OpenShop()
     {
 
-        if(shopDetector.gameObject.GetComponent<ShopManager>().inRange == true)
+        if(player.gameObject.GetComponent<ShopManager>().inRange == true)
         {
             shopMenu.SetActive(true);
         }

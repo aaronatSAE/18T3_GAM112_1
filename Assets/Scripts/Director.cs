@@ -20,6 +20,8 @@ public class Director : MonoBehaviour {
     public Text gameCurrencyText;
     public Text gameStarsText;
 
+    public GameObject door;
+
 
 	// Use this for initialization
 	void Start () {
@@ -41,9 +43,12 @@ public class Director : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+
         if (gameStars >= gameLevelStars)
         {
             CompleteLevel();
+
         }
 
     }

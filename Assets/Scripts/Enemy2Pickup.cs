@@ -69,7 +69,7 @@ public class Enemy2Pickup : MonoBehaviour {
             inRange = true;
         }
 
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
 
     }
 

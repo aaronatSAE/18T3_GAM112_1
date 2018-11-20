@@ -5,19 +5,21 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour {
 
     public GameObject shopButton;
+    public GameObject shopDetector;
     public bool inRange;
 
     private void Update()
     {
 
         shopButton.SetActive(inRange);
+        shopDetector = GameObject.FindWithTag("ShopDetector");
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject == shopDetector)
         {
             inRange = true;
         }
@@ -27,7 +29,10 @@ public class ShopManager : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        inRange = false;
+        if (collision.gameObject == shopDetector)
+        {
+            inRange = false;
+        }
 
     }
 
