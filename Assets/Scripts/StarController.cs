@@ -19,7 +19,7 @@ public class StarController : MonoBehaviour {
     public void AddStars()
     {
 
-        starCount = starCount + 10;
+        starCount = starCount + 1;
         starText.text = "Stars: " + starCount;
 
     }

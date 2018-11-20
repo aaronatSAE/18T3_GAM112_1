@@ -45,8 +45,8 @@ public class Director : MonoBehaviour {
         {
             CompleteLevel();
         }
-		
-	}
+
+    }
 
 
    public void CompleteLevel()

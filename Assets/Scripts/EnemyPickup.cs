@@ -85,6 +85,7 @@ public class EnemyPickup : MonoBehaviour {
 
         self.transform.parent = null;
         isAttached = false;
+        player.gameObject.GetComponent<PlayerController>().hasEnemy = false;
 
     }
 
@@ -94,10 +95,12 @@ public class EnemyPickup : MonoBehaviour {
         if (player.GetComponent<PlayerController>().facingRight == true)
         {
             rb.velocity = new Vector2(throwForceX, throwForceY);
+            player.gameObject.GetComponent<PlayerController>().hasEnemy = false;
         }
         else if (player.GetComponent<PlayerController>().facingRight == false)
         {
             rb.velocity = new Vector2(-throwForceX, throwForceY);
+            player.gameObject.GetComponent<PlayerController>().hasEnemy = false;
         }
 
     }
@@ -109,6 +112,7 @@ public class EnemyPickup : MonoBehaviour {
         inRange = false;
         isAttached = true;
         self.gameObject.tag = "AttachedEnemy1";
+        player.gameObject.GetComponent<PlayerController>().hasEnemy = true;
 
     }
 

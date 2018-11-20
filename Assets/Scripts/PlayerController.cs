@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     public Transform spawnPoint;
 
     public bool hasCape;
+    public bool hasEnemy = false;
 
     public bool facingRight = true;
 
@@ -21,6 +22,11 @@ public class PlayerController : MonoBehaviour {
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+
+    public Animator animator;
+    public GameObject moveAnim;
+    public GameObject idleAnim;
+    public GameObject carryAnim;
 
     private int extraJumps;
     public int maxJumps;
@@ -71,6 +77,27 @@ public class PlayerController : MonoBehaviour {
         else if (facingRight == true && moveInput < 0)
         {
             Flip();
+        }
+
+        if (moveInput != 0)
+        {
+            animator.SetBool("isMoving", true);
+            moveAnim.SetActive(true);
+            idleAnim.SetActive(false);
+            carryAnim.SetActive(false);
+        }
+        else if (moveInput == 0)
+        {
+            animator.SetBool("isMoving", false);
+            moveAnim.SetActive(false);
+            carryAnim.SetActive(false);
+            idleAnim.SetActive(true);
+        }
+        else if (moveInput != 0 && hasEnemy == true)
+        {
+            carryAnim.SetActive(true);
+            idleAnim.SetActive(false);
+            moveAnim.SetActive(false);
         }
 
     }
