@@ -11,12 +11,16 @@ public class StarController : MonoBehaviour {
     protected GameObject levelRequirement;
     protected GameObject director;
 
+    public AudioClip starNoise;
+    private AudioSource source;
+
     private void Start()
     {
 
         director = GameObject.Find("EventSystem");
 
         starText.text = ("Stars:" + starCount + "/" + director.gameObject.GetComponent<Director>().gameLevelStars);
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -31,6 +35,7 @@ public class StarController : MonoBehaviour {
         if (collision.gameObject.tag == "Star")
         {
             AddStar();
+            source.PlayOneShot(starNoise, 1);
             Destroy(collision.gameObject);
             levelRequirement.gameObject.GetComponent<levelStarRequirement>().starsInLevel = levelRequirement.gameObject.GetComponent<levelStarRequirement>().starsInLevel - 1;
         }

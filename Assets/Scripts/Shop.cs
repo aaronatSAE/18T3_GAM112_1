@@ -11,11 +11,15 @@ public class Shop : MonoBehaviour {
 
     public int capeCost;
 
+    public AudioClip shopNoise;
+    private AudioSource source;
+
     private void Start()
     {
 
         shopMenu.SetActive(false);
         player = GameObject.FindWithTag("Player");
+        source = GetComponent<AudioSource>();
         //shopMenu = GameObject.FindWithTag("ShopMenu");
 
     }
@@ -44,6 +48,7 @@ public class Shop : MonoBehaviour {
         {
             player.gameObject.GetComponent<StarController>().LoseStars(capeCost);
             player.gameObject.GetComponent<PlayerController>().hasCape = true;
+            source.PlayOneShot(shopNoise, 1);
         }
 
     }
