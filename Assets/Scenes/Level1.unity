@@ -2789,7 +2789,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4361200136321332, guid: b7addc0735fb62541a5fd2154140105b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.05859375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361200136321332, guid: b7addc0735fb62541a5fd2154140105b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2853,6 +2853,21 @@ Prefab:
     - target: {fileID: 1255743801225034, guid: b7addc0735fb62541a5fd2154140105b, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212426405993913868, guid: b7addc0735fb62541a5fd2154140105b,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1603594763
+      objectReference: {fileID: 0}
+    - target: {fileID: 212426405993913868, guid: b7addc0735fb62541a5fd2154140105b,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212426405993913868, guid: b7addc0735fb62541a5fd2154140105b,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7addc0735fb62541a5fd2154140105b, type: 2}
@@ -9009,35 +9024,6 @@ Prefab:
       propertyPath: pickupTooltip
       value: 
       objectReference: {fileID: 2124092274}
-    - target: {fileID: 212819399177133612, guid: 810d11cbd52af4241a9c7a53a96d2749,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212819399177133612, guid: 810d11cbd52af4241a9c7a53a96d2749,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892691121859316, guid: 810d11cbd52af4241a9c7a53a96d2749,
-        type: 2}
-      propertyPath: isDead
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1869704122669668, guid: 810d11cbd52af4241a9c7a53a96d2749, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212787196034459234, guid: 810d11cbd52af4241a9c7a53a96d2749,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212787196034459234, guid: 810d11cbd52af4241a9c7a53a96d2749,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810d11cbd52af4241a9c7a53a96d2749, type: 2}
   m_IsPrefabAsset: 0
@@ -9602,11 +9588,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.436827
+      value: -12.2353
       objectReference: {fileID: 0}
     - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.7234558
+      value: -1.925
       objectReference: {fileID: 0}
     - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9637,38 +9623,6 @@ Prefab:
       propertyPath: pickupTooltip
       value: 
       objectReference: {fileID: 1989853355}
-    - target: {fileID: 212573726938280890, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212573726938280890, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.071299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.071299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.071299
-      objectReference: {fileID: 0}
-    - target: {fileID: 212777849031266938, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212777849031266938, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
   m_IsPrefabAsset: 0
@@ -10864,38 +10818,6 @@ Prefab:
       propertyPath: pickupTooltip
       value: 
       objectReference: {fileID: 1989853355}
-    - target: {fileID: 212573726938280890, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212573726938280890, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0713
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.0713
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515095550964308, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0713
-      objectReference: {fileID: 0}
-    - target: {fileID: 212777849031266938, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1043239083
-      objectReference: {fileID: 0}
-    - target: {fileID: 212777849031266938, guid: cdf1cecae7dd7ea4f99757084821bffa,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1718205915951168, guid: cdf1cecae7dd7ea4f99757084821bffa, type: 2}
       propertyPath: m_Name
       value: Enemy2Default (1)
