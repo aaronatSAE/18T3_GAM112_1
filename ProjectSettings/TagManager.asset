@@ -61,6 +61,6 @@ TagManager:
   - name: Player/Enemy
     uniqueID: 1043239083
     locked: 0
-  - name: 
+  - name: ToolTips
     uniqueID: 756596051
     locked: 0

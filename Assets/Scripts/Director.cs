@@ -64,6 +64,7 @@ public class Director : MonoBehaviour {
     }
 
     public void DoorOpen()
+
     {
 
         doorClosed.gameObject.GetComponent<FinishDoor>().hasEnoughStars = true;

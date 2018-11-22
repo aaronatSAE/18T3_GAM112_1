@@ -163,9 +163,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1043239083
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45081a52b07c0d34faeab77929588471, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -632,8 +632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32cf52060a97714a9cd199abf1e9584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starcount: 0
-  starsInLevel: 0
+  starcount: 5
+  starsInLevel: 5
 --- !u!4 &456690733
 Transform:
   m_ObjectHideFlags: 0
@@ -942,8 +942,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1043239083
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 6ee993c9315dffe4ab62c5f27253c8ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1154,8 +1154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1043239083
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a9733e160dcee404f93d9682a7e07e87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  jumpHeight: 3.5
+  jumpHeight: 4.5
   capeSprite: {fileID: 239489940}
   spawnPoint: {fileID: 2084147378}
   hasCape: 0
@@ -1481,7 +1481,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.64, y: 1.25}
   m_EdgeRadius: 0
 --- !u!50 &1056759419
 Rigidbody2D:
@@ -1530,7 +1530,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1056759415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.152, y: -0.806, z: -0.9}
+  m_LocalPosition: {x: 0.152, y: -0.864, z: -0.9}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 1053484790}
