@@ -19,6 +19,7 @@ public class Shop : MonoBehaviour {
     public Text goggleText;
 
     public AudioClip shopNoise;
+    public AudioClip notEnoughMoney;
     private AudioSource source;
 
     private void Start()
@@ -60,11 +61,15 @@ public class Shop : MonoBehaviour {
     public void BuyCape()
     {
 
-        if(player.gameObject.GetComponent<StarController>().starCount >= capeCost)
+        if(player.gameObject.GetComponent<StarController>().starCount >= capeCost && player.gameObject.GetComponent<PlayerController>().hasCape == false)
         {
             player.gameObject.GetComponent<StarController>().LoseStars(capeCost);
             player.gameObject.GetComponent<PlayerController>().hasCape = true;
             source.PlayOneShot(shopNoise, 1);
+        }
+        else
+        {
+            source.PlayOneShot(notEnoughMoney, 1);
         }
 
     }
@@ -72,11 +77,15 @@ public class Shop : MonoBehaviour {
     public void BuyBoots()
     {
 
-        if (player.gameObject.GetComponent<StarController>().starCount >= bootCost)
+        if (player.gameObject.GetComponent<StarController>().starCount >= bootCost && player.gameObject.GetComponent<PlayerController>().hasBoots == false)
         {
             player.gameObject.GetComponent<StarController>().LoseStars(bootCost);
             player.gameObject.GetComponent<PlayerController>().hasBoots = true;
             source.PlayOneShot(shopNoise, 1);
+        }
+        else
+        {
+            source.PlayOneShot(notEnoughMoney, 1);
         }
 
     }
@@ -84,11 +93,15 @@ public class Shop : MonoBehaviour {
     public void BuyGoggles()
     {
 
-        if (player.gameObject.GetComponent<StarController>().starCount >= goggleCost)
+        if (player.gameObject.GetComponent<StarController>().starCount >= goggleCost && player.gameObject.GetComponent<PlayerController>().hasGoggles == false)
         {
             player.gameObject.GetComponent<StarController>().LoseStars(goggleCost);
             player.gameObject.GetComponent<PlayerController>().hasGoggles = true;
             source.PlayOneShot(shopNoise, 1);
+        }
+        else
+        {
+            source.PlayOneShot(notEnoughMoney, 1);
         }
 
     }
