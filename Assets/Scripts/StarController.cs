@@ -54,6 +54,7 @@ public class StarController : MonoBehaviour {
     {
 
         starCount = starCount - stars;
+        starText.text = ("Stars:" + starCount + "/" + director.gameObject.GetComponent<Director>().gameLevelStars);
 
     }
 

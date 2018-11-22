@@ -4008,7 +4008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32cf52060a97714a9cd199abf1e9584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starcount: 10
+  starcount: 5
   starsInLevel: 10
 --- !u!4 &456690733
 Transform:

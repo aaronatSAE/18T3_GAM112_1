@@ -5,15 +5,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float speed;
+    public float baseSpeed;
+    public float bootSpeed;
     public float jumpHeight;
     private float moveInput;
     private Rigidbody2D rb;
 
+    public GameObject blinkWaypoint;
+    public float blinkCooldown;
+    public float maxBlinkCooldown;
+
     public GameObject capeSprite;
+    public GameObject bootSprite;
+    public GameObject goggleSprite;
 
     public Transform spawnPoint;
 
     public bool hasCape;
+    public bool hasBoots;
+    public bool hasGoggles;
     public bool hasEnemy = false;
 
     public bool facingRight = true;
@@ -42,23 +52,48 @@ public class PlayerController : MonoBehaviour {
     private void Update()
     {
 
-        capeSprite.SetActive(hasCape);
+        capeSprite.gameObject.GetComponent<SpriteRenderer>().enabled = hasCape;
+        bootSprite.gameObject.GetComponent<SpriteRenderer>().enabled = hasBoots;
+        goggleSprite.gameObject.GetComponent<SpriteRenderer>().enabled = hasGoggles;
 
-        if (isGrounded)
+        blinkCooldown -= Time.deltaTime;
+
+        if (isGrounded && !hasCape)
         {
             extraJumps = maxJumps;
+        }
+        if(isGrounded && hasCape)
+        {
+            extraJumps = maxJumps + 2;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpHeight;
-            if (hasCape == false)
-            {
-                extraJumps--;
-            }
+            extraJumps--;
+
         }
 
+        if (hasBoots)
+        {
+            speed = bootSpeed;
+        }
+        else
+        {
+            speed = baseSpeed;
+        }
 
+        if (hasGoggles && blinkCooldown <= 0 && Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.position = blinkWaypoint.transform.position;
+            blinkCooldown = maxBlinkCooldown;
+            blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (hasGoggles && blinkCooldown <= 0)
+        {
+            blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
 
     }
 
