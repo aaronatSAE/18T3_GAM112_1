@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4750422978540710}
-  - component: {fileID: 61232701160667558}
+  - component: {fileID: 68939533400648768}
   m_Layer: 8
   m_Name: Snow Ground Small
   m_TagString: Platform
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945334251356840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: -0.43299964, y: 0.19500017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4750422978540710}
@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927364603929394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.12, y: 0.5, z: 0}
+  m_LocalPosition: {x: 1.5670004, y: 0.19500017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4750422978540710}
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400697191683184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.600454, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.567, y: 0.195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4750422978540710}
@@ -137,8 +137,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318202949565138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 2.46, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -8.746281, y: 5.565394, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4498576915587532}
   - {fileID: 4488222197819584}
@@ -154,14 +154,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977151400998964}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -19.59, y: 0.5, z: 0}
+  m_LocalPosition: {x: -1.4329996, y: 0.19500017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4750422978540710}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!61 &61232701160667558
-BoxCollider2D:
+--- !u!68 &68939533400648768
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -172,19 +172,14 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -15.859243, y: 0.5042157}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.953224, y: 2.5006123}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.11, y: 0}
+  m_EdgeRadius: 0.1
+  m_Points:
+  - {x: -1.937404, y: 0.48792553}
+  - {x: -1.935345, y: -0.20092344}
+  - {x: 1.8521429, y: -0.19910574}
+  - {x: 1.8490311, y: 0.5018358}
+  - {x: -1.9330372, y: 0.49122238}
 --- !u!212 &212035979564705828
 SpriteRenderer:
   m_ObjectHideFlags: 1

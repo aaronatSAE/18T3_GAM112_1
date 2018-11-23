@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4064502436069110}
-  - component: {fileID: 61062823266527686}
+  - component: {fileID: 68838622560696272}
   m_Layer: 8
   m_Name: Ice Ground Small
   m_TagString: Platform
@@ -98,8 +98,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689553306869782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.274979, y: -3.7467668, z: -0.0023712714}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.2168026, y: 7.016464, z: -0.0023712714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734962026117078}
   - {fileID: 4527343084129006}
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1706813895800638}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -3.79, y: 0.15666771, z: 0.0023712714}
+  m_LocalPosition: {x: -0.79, y: 0.15666771, z: 0.0023712714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4064502436069110}
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142143492765914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7100005, y: 0.15666771, z: 0.0023712714}
+  m_LocalPosition: {x: 2.21, y: 0.15666771, z: 0.0023712714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4064502436069110}
@@ -154,14 +154,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910429353276224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2853632, y: 0.15666766, z: 0.0023712714}
+  m_LocalPosition: {x: 0.21, y: 0.15666766, z: 0.0023712714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4064502436069110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61062823266527686
-BoxCollider2D:
+--- !u!68 &68838622560696272
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -172,19 +172,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03631544, y: 0.16600537}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.953921, y: 2.4732995}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.7, y: 0.12}
+  m_EdgeRadius: 0.01
+  m_Points:
+  - {x: -1.8777206, y: 0.3960594}
+  - {x: -1.9739676, y: 0.17402971}
+  - {x: -1.9834335, y: -0.32520974}
+  - {x: -1.9007185, y: -0.45488465}
+  - {x: 1.917918, y: -0.45437777}
+  - {x: 2.0027065, y: -0.3425814}
+  - {x: 1.9973714, y: 0.17267454}
+  - {x: 1.9077704, y: 0.38998067}
+  - {x: -1.882014, y: 0.39323032}
 --- !u!212 &212082060532199254
 SpriteRenderer:
   m_ObjectHideFlags: 1
