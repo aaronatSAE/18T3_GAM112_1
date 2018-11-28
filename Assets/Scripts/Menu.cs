@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 
     public void GenderSelection()
