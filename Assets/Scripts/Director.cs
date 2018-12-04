@@ -19,6 +19,8 @@ public class Director : MonoBehaviour {
     public Text playerLivesText;
     public Text gameCurrencyText;
     public Text gameStarsText;
+	
+	public GameObject Door;
 
 
 	// Use this for initialization
@@ -34,8 +36,11 @@ public class Director : MonoBehaviour {
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
         playerLivesText.text = ("Lives:" + playerLives);
+		
+		Door = GameObject.FindWithTag("Door");
+		Door.GetComponent<FinishDoor>().hasEnoughStars = false;
 
-
+		CompleteLevel();
     }
 	
 	// Update is called once per frame
@@ -43,8 +48,11 @@ public class Director : MonoBehaviour {
 
         if (gameStars >= gameLevelStars)
         {
-            CompleteLevel();
-        }
+            OpenDoor();
+        } else
+		{
+			Door.GetComponent<FinishDoor>().hasEnoughStars = false;
+		}
 		
 	}
 
@@ -54,6 +62,7 @@ public class Director : MonoBehaviour {
 
         gameLevel += 1;
         gameStars = 0;
+		Door.GetComponent<FinishDoor>().hasEnoughStars = false;
         if (gameLevel == 9)
         {
             gameLevel = 1;
@@ -63,6 +72,7 @@ public class Director : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+			gameCurrencyText.text = ("$" + gameCurrency);
         playerLivesText.text = ("Lives:" + playerLives);
 
     }
@@ -73,7 +83,9 @@ public class Director : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+			gameCurrencyText.text = ("$" + gameCurrency);
         playerLivesText.text = ("Lives:" + playerLives);
+		Door.GetComponent<FinishDoor>().hasEnoughStars = false;
 
     }
 
@@ -82,6 +94,7 @@ public class Director : MonoBehaviour {
 
         playerLives -= 1;
         gameStars = 0;
+		Door.GetComponent<FinishDoor>().hasEnoughStars = false;
         if (playerLives <= 0)
         {
             gameOver();
@@ -100,12 +113,15 @@ public class Director : MonoBehaviour {
     {
 
         gameStars += 1;
+		gameCurrency += 1;
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+		gameCurrencyText.text = ("$" + gameCurrency);
     }
 
     public void updateStars()
     {
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+		gameCurrencyText.text = ("$" + gameCurrency);
     }
 
     public void gameOver()
@@ -120,10 +136,25 @@ public class Director : MonoBehaviour {
         SceneManager.LoadScene("Level1");
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+			gameCurrencyText.text = ("$" + gameCurrency);
         playerLivesText.text = ("Lives:" + playerLives);
 
 
 
+
+    }
+	
+	public void OpenDoor()
+	{
+		//CompleteLevel();
+		Door.GetComponent<FinishDoor>().hasEnoughStars = true;
+	}
+	
+	    public void LoseCurrency(int Currency)
+    {
+
+        gameCurrency = gameCurrency - Currency;
+        gameCurrencyText.text = ("$" + gameCurrency);
 
     }
 

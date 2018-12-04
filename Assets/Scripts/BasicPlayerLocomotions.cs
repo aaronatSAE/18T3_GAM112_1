@@ -25,9 +25,9 @@ public class BasicPlayerLocomotions : MonoBehaviour {
     public bool isImmortal; // If the player is immune to taking damage or not
 
     //Player Stats Variables
-    public float hpCurrent;
-    public float hpMax;
-    public Image healthBar;
+    private float GracePeriod;
+	
+	public bool facingRight = true;
 
 
 
@@ -37,26 +37,60 @@ public class BasicPlayerLocomotions : MonoBehaviour {
     private enemyEntity enemyAI; // The main enemy script, this is also needed when pulling an enemy's data
     public Director director; // The Level controller
 
+	
+	private Animator anims;
+    private GameObject childOBJ;
+
+    public bool isShield;
+    public bool isCape;
+    public bool isBoots;
+    public bool isGoggles;
+
+    public float shieldPower;
+    public float baseSpeed;
+    public float bootSpeed;
+
+    // Buff stuff
+    public GameObject blinkWaypoint;
+    public float blinkCooldown;
+    public float maxBlinkCooldown;
+
+    // Sprites
+    public GameObject forwardCape;
+    public GameObject runningCape;
+    public GameObject forwardGoggles;
+    public GameObject runningGoggles;
+    public GameObject bootsParticles;
+
+    public bool isRunning;
+
+
+
 
 
     // Use this for initialization
     void Start () {
 
-
+        bootsParticles.SetActive(false);
+        isGoggles = false;
+        shieldPower = 2;
+        isShield = false;
         isGrounded = false;
         moveSpeed = 10.0f;
         maxSpeed = 2.0f;
         jumpMax = 2.0f;
         jumpCount = jumpMax;
-        jumpPower = 3.5f;
-        doublejumpPower = 2.5f;
+        jumpPower = 4.5f;
+        doublejumpPower = 4.0f;
         hurtjumpPower = 1.5f;
         iFrames = 0;
         iFramesValue = 30;
         isImmortal = false;
         jumpPress = false;
-        hpMax = 10.0f;
-        hpCurrent = hpMax;
+        GracePeriod = 2;
+		
+		anims =  this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        childOBJ = this.gameObject.transform.GetChild(1).gameObject;
         
 
 
@@ -70,7 +104,70 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        bootsParticles.SetActive(isBoots);
 
+        if(isRunning == true && isGoggles == true)
+        {
+            runningGoggles.SetActive(true);
+            forwardGoggles.SetActive(false);
+            forwardCape.SetActive(false);
+            //runningCape.SetActive(false);
+        }
+
+        if (isRunning == false && isGoggles == true)
+        {
+            runningGoggles.SetActive(false);
+            forwardGoggles.SetActive(true);
+            //forwardCape.SetActive(false);
+            runningCape.SetActive(false);
+        }
+
+        if (isRunning == false && isCape == true)
+        {
+            runningGoggles.SetActive(false);
+            //forwardGoggles.SetActive(false);
+            forwardCape.SetActive(true);
+            runningCape.SetActive(false);
+        }
+
+        if (isRunning == true && isCape == true)
+        {
+            //runningGoggles.SetActive(false);
+            forwardGoggles.SetActive(false);
+            forwardCape.SetActive(false);
+            runningCape.SetActive(true);
+        }
+
+
+
+        blinkCooldown -= Time.deltaTime;
+        blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = isGoggles; 
+
+
+        if (isBoots == true)
+        {
+            moveSpeed = bootSpeed;
+        }
+
+        else
+        {
+            moveSpeed = baseSpeed;
+        }
+
+        if(shieldPower > 0)
+        {
+            isShield = true;
+            childOBJ.SetActive(true);
+        }
+
+        else
+        {
+            isShield = false;
+            childOBJ.SetActive(false);
+        }
+
+
+		GracePeriod -= 1;
         //Checks if the player still has iFrames, and if they should be immortal or not
         checkImmortality();
 		
@@ -79,12 +176,31 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             //Resets their number of allowed jumps
             ReloadJumps();
             //other features such as setting the animation handler to preform a landing animation, or cancelling some of the airborne only abilities that may or may not exist.
-        }
+        } else {
+			
+		}
 
         //Gets input values from Unity's built in engine and moves horizontally based on this
         float h = Input.GetAxis("Horizontal");
         float hMove = h * moveSpeed;
         rb2d.velocity = new Vector2(hMove, rb2d.velocity.y);
+		
+		if (h != 0){
+			anims.SetBool("isMoving", true);
+            isRunning = true;
+		} else {
+			anims.SetBool("isMoving", false);
+            isRunning = false;
+		}
+		
+		        if (facingRight == false && h > 0)
+        {
+            Flip();
+        }
+        else if (facingRight == true && h < 0)
+        {
+            Flip();
+        }
 
         //Prevents the player from moving TOO fast
         if (rb2d.velocity.x > maxSpeed)
@@ -106,23 +222,38 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             {
                 doJump();
                 jumpPress = true;
+				anims.SetBool("isJumping", true);
+				GracePeriod = 2;
             }
         }
 
         if (Input.GetKeyDown("e"))
         {
-            director.LoseLevel();
+           // director.LoseLevel();
         }
 
-        if (Input.GetKeyDown("q"))
-        {
-            director.CompleteLevel();
-        }
+        //if (Input.GetKeyDown("q"))
+        //{
+        //    director.CompleteLevel();
+        //}
 
         if (Input.GetKeyUp("space"))
         {
             jumpPress = false;
 
+        }
+
+        // Goggles
+        if (isGoggles && blinkCooldown <= 0 && Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.position = blinkWaypoint.transform.position;
+            blinkCooldown = maxBlinkCooldown;
+            blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (isGoggles && blinkCooldown <= 0)
+        {
+            blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         }
 
 
@@ -135,13 +266,17 @@ public class BasicPlayerLocomotions : MonoBehaviour {
  
     {
   
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Rock"  )
         {
             if(transform.position.y > collision.transform.position.y)
             {
+		if (GracePeriod <= 0){
+			    anims.SetBool("isJumping", false);
+		}
                 ReloadJumps();
             }
-        }
+        } 
+		
 
 
         if (collision.gameObject.tag == "Hazard")
@@ -156,6 +291,47 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             }
         }
 
+
+        if (collision.gameObject.tag == "Shield")
+        {
+            if (isShield == false)
+            {
+                Destroy(collision.gameObject);
+                GetShield();
+            }
+        }
+
+        if (collision.gameObject.tag == "Boots")
+        {
+            if (isBoots == false)
+            {
+                Destroy(collision.gameObject);
+                isBoots = true;
+               // GetBoots();
+            }
+        }
+
+        if (collision.gameObject.tag == "Goggles")
+        {
+            if (isGoggles == false)
+            {
+                Destroy(collision.gameObject);
+                isGoggles = true; 
+                //GetGoggles();
+            }
+        }
+
+        if (collision.gameObject.tag == "Cape")
+        {
+            if (isCape == false)
+            {
+                Destroy(collision.gameObject);
+                isCape = true;
+                //GetCape();
+            }
+        }
+
+
         if (collision.gameObject.tag == "Hostile")
         {
             //Pulls the information of the enemy collided with
@@ -163,6 +339,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             enemyAI = collision.gameObject.GetComponent<enemyEntity>();
 
             //Grabs all corners of the collision and then Draws a Line to find where the impact came from
+
             foreach (ContactPoint2D point in collision.contacts)
             {
                 //If the player landed on top the enemy with a 0.1 margin for comfort
@@ -177,15 +354,22 @@ public class BasicPlayerLocomotions : MonoBehaviour {
                     }
                     else
                     {
+									if (enemyAI.isWounded == true){
+										enemyAI.die();
+									}
+									else{
                         enemyAI.getHurt();
+									}
                         rb2d.velocity = new Vector2(rb2d.velocity.x, doublejumpPower);
 
                     }
                 }
                 else
                 {
+					if (enemyAI.isWounded == false){
                     iFrames += 1;
                     takeDamage();
+					}
                 }
             }
         }
@@ -252,21 +436,58 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
     void takeDamage()
     {
-        healthBar.fillAmount = hpCurrent / hpMax;
+        
 
         if (isImmortal == false)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, hurtjumpPower);
-            iFrames += iFramesValue;
-            hpCurrent -= (enemyStats.attackDamage / 2 );
+            if (isShield == true)
+            {
+
+                shieldPower -= 1;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, hurtjumpPower);
+                anims.SetBool("isJumping", true);
+                GracePeriod = 2;
+                iFrames += iFramesValue;
 
 
-            if(hpCurrent <= 0)
+            }
+
+            else if (isShield == false && (isCape == true || isBoots == true || isGoggles == true))
+            {
+                isGoggles = false;
+                isCape = false;
+                isBoots = false;
+                forwardGoggles.SetActive(false);
+                forwardCape.SetActive(false);
+                runningCape.SetActive(false);
+                runningGoggles.SetActive(false);
+            }
+
+
+            else
             {
                 director.LoseLevel();
-                hpCurrent = hpMax;
-                healthBar.fillAmount = hpCurrent / hpMax;
+                
+                
             }
+
         }
+    }
+	
+	    void Flip()
+    {
+
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+
+    }
+
+
+
+    void GetShield()
+    {
+        shieldPower = 2;
     }
 }
