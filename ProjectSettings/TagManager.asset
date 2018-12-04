@@ -4,17 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Hostile
   - Platform
+  - Hostile
+  - Hazard
   - Star
-  - Enemy1
-  - PickupZone
-  - AttachedEnemy1
-  - Enemy2
-  - AttachedEnemy2
-  - ShopDetector
-  - OpenDoor
-  - ClosedDoor
   layers:
   - Default
   - TransparentFX
@@ -24,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - Enemy
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -51,16 +44,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 1590473997
-    locked: 0
-  - name: Level/Ground
-    uniqueID: 2691372533
-    locked: 0
-  - name: Player/Enemy
-    uniqueID: 1043239083
-    locked: 0
-  - name: ToolTips
-    uniqueID: 756596051
     locked: 0

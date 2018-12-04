@@ -20,12 +20,6 @@ public class Director : MonoBehaviour {
     public Text gameCurrencyText;
     public Text gameStarsText;
 
-    public GameObject doorClosed;
-    public GameObject doorOpen;
-    public GameObject player;
-
-    protected GameObject levelStarRequirement;
-
 
 	// Use this for initialization
 	void Start () {
@@ -41,73 +35,37 @@ public class Director : MonoBehaviour {
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
         playerLivesText.text = ("Lives:" + playerLives);
 
-       
-
 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        doorClosed = GameObject.FindWithTag("ClosedDoor");
-        levelStarRequirement = GameObject.Find("LevelStarRequirement");
-
-        if (player.gameObject.GetComponent<StarController>().starCount >= gameLevelStars)
+        if (gameStars >= gameLevelStars)
         {
-            
-            DoorOpen(); 
-            //CompleteLevel();
-
+            CompleteLevel();
         }
+		
+	}
 
 
-    }
-
-    public void DoorOpen()
-
+   public void CompleteLevel()
     {
 
-        doorClosed.gameObject.GetComponent<FinishDoor>().hasEnoughStars = true;
-        Debug.Log("Got Enough Stars");
+        gameLevel += 1;
+        gameStars = 0;
+        if (gameLevel == 9)
+        {
+            gameLevel = 1;
+            gameWorld += 1;
+        }
 
-        doorClosed.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
-        //gameLevel += 1;
-        //gameStars = 0;
-        ////door.gameObject.GetComponent<Open>().isOpen = true;
-
-        //if (gameLevel == 3)
-        //{
-        //    gameLevel = 1;
-        //    gameWorld += 1;
-        //}
-
-
-        //door.gameObject.GetComponent<Open>().isOpen = true;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
         gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
         playerLivesText.text = ("Lives:" + playerLives);
+
     }
-
-
-   //public void CompleteLevel()
-   // {
-
-   //     gameLevel += 1;
-   //     gameStars = 0;
-   //     if (gameLevel == 3)
-   //     {
-   //         gameLevel = 1;
-   //         gameWorld += 1;
-   //     }
-
-   //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-   //     gameLevelText.text = ("World\n" + gameWorld + "-" + gameLevel);
-   //     gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
-   //     playerLivesText.text = ("Lives:" + playerLives);
-
-   // }
 
     public void ReloadLevel()
     {
@@ -138,17 +96,17 @@ public class Director : MonoBehaviour {
 
     }
 
-    //public void getStar()
-    //{
+    public void getStar()
+    {
 
-    //    gameStars += 1;
-    //    gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
-    //}
+        gameStars += 1;
+        gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+    }
 
-    //public void updateStars()
-    //{
-    //    gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
-    //}
+    public void updateStars()
+    {
+        gameStarsText.text = ("Stars:" + gameStars + "/" + gameLevelStars);
+    }
 
     public void gameOver()
     {

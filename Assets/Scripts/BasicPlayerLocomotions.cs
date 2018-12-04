@@ -114,10 +114,10 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             director.LoseLevel();
         }
 
-        //if (Input.GetKeyDown("q"))
-        //{
-        //    director.CompleteLevel();
-        //}
+        if (Input.GetKeyDown("q"))
+        {
+            director.CompleteLevel();
+        }
 
         if (Input.GetKeyUp("space"))
         {
