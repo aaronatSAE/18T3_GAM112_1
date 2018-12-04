@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
             extraJumps = maxJumps + 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps >= 0)
         {
             rb.velocity = Vector2.up * jumpHeight;
             extraJumps--;
@@ -150,11 +150,13 @@ public class PlayerController : MonoBehaviour {
     public void HurtPlayer()
     {
 
-        if(hasCape == true)
+        if (hasCape == true)
         {
             hasCape = false;
+            hasGoggles = false;
+            hasBoots = false;
         }
-        else if(hasCape == false)
+        else if (hasCape == false && hasGoggles == false && hasBoots == false)
         {
             transform.position = spawnPoint.transform.position;
         }
