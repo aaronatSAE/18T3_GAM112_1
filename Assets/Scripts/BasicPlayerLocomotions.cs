@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BasicPlayerLocomotions : MonoBehaviour {
+public class BasicPlayerLocomotions : MonoBehaviour
+{
 
     //Movement Variables
     public float moveSpeed; // Speed of accelleration
@@ -26,8 +27,8 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
     //Player Stats Variables
     private float GracePeriod;
-	
-	public bool facingRight = true;
+
+    public bool facingRight = true;
 
 
 
@@ -37,8 +38,8 @@ public class BasicPlayerLocomotions : MonoBehaviour {
     private enemyEntity enemyAI; // The main enemy script, this is also needed when pulling an enemy's data
     public Director director; // The Level controller
 
-	
-	private Animator anims;
+
+    private Animator anims;
     private GameObject childOBJ;
 
     public bool isShield;
@@ -69,7 +70,8 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         bootsParticles.SetActive(false);
         isGoggles = false;
@@ -88,25 +90,26 @@ public class BasicPlayerLocomotions : MonoBehaviour {
         isImmortal = false;
         jumpPress = false;
         GracePeriod = 2;
-		
-		anims =  this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+
+        anims = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         childOBJ = this.gameObject.transform.GetChild(1).gameObject;
-        
+
 
 
         rb2d = gameObject.GetComponent<Rigidbody2D>();
 
 
-		
-	}
 
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
 
         bootsParticles.SetActive(isBoots);
 
-        if(isRunning == true && isGoggles == true)
+        if (isRunning == true && isGoggles == true)
         {
             runningGoggles.SetActive(true);
             forwardGoggles.SetActive(false);
@@ -141,7 +144,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
 
         blinkCooldown -= Time.deltaTime;
-        blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = isGoggles; 
+        blinkWaypoint.gameObject.GetComponent<SpriteRenderer>().enabled = isGoggles;
 
 
         if (isBoots == true)
@@ -154,7 +157,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             moveSpeed = baseSpeed;
         }
 
-        if(shieldPower > 0)
+        if (shieldPower > 0)
         {
             isShield = true;
             childOBJ.SetActive(true);
@@ -167,33 +170,38 @@ public class BasicPlayerLocomotions : MonoBehaviour {
         }
 
 
-		GracePeriod -= 1;
+        GracePeriod -= 1;
         //Checks if the player still has iFrames, and if they should be immortal or not
         checkImmortality();
-		
+
         if (isGrounded == true)
         {
             //Resets their number of allowed jumps
             ReloadJumps();
             //other features such as setting the animation handler to preform a landing animation, or cancelling some of the airborne only abilities that may or may not exist.
-        } else {
-			
-		}
+        }
+        else
+        {
+
+        }
 
         //Gets input values from Unity's built in engine and moves horizontally based on this
         float h = Input.GetAxis("Horizontal");
         float hMove = h * moveSpeed;
         rb2d.velocity = new Vector2(hMove, rb2d.velocity.y);
-		
-		if (h != 0){
-			anims.SetBool("isMoving", true);
+
+        if (h != 0)
+        {
+            anims.SetBool("isMoving", true);
             isRunning = true;
-		} else {
-			anims.SetBool("isMoving", false);
+        }
+        else
+        {
+            anims.SetBool("isMoving", false);
             isRunning = false;
-		}
-		
-		        if (facingRight == false && h > 0)
+        }
+
+        if (facingRight == false && h > 0)
         {
             Flip();
         }
@@ -222,14 +230,14 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             {
                 doJump();
                 jumpPress = true;
-				anims.SetBool("isJumping", true);
-				GracePeriod = 2;
+                anims.SetBool("isJumping", true);
+                GracePeriod = 2;
             }
         }
 
         if (Input.GetKeyDown("e"))
         {
-           // director.LoseLevel();
+            // director.LoseLevel();
         }
 
         //if (Input.GetKeyDown("q"))
@@ -263,20 +271,21 @@ public class BasicPlayerLocomotions : MonoBehaviour {
     //Checks if the player collided with anything that has the "Platform" tag, and if the player is above it, to reset the jump counter
     private void OnCollisionStay2D(Collision2D collision)
 
- 
+
     {
-  
-        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Rock"  )
+
+        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Rock")
         {
-            if(transform.position.y > collision.transform.position.y)
+            if (transform.position.y > collision.transform.position.y)
             {
-		if (GracePeriod <= 0){
-			    anims.SetBool("isJumping", false);
-		}
+                if (GracePeriod <= 0)
+                {
+                    anims.SetBool("isJumping", false);
+                }
                 ReloadJumps();
             }
-        } 
-		
+        }
+
 
 
         if (collision.gameObject.tag == "Hazard")
@@ -286,7 +295,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
             if (transform.position.y > collision.transform.position.y)
             {
-                 ReloadJumps();
+                ReloadJumps();
 
             }
         }
@@ -307,7 +316,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             {
                 Destroy(collision.gameObject);
                 isBoots = true;
-               // GetBoots();
+                // GetBoots();
             }
         }
 
@@ -316,7 +325,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             if (isGoggles == false)
             {
                 Destroy(collision.gameObject);
-                isGoggles = true; 
+                isGoggles = true;
                 //GetGoggles();
             }
         }
@@ -350,26 +359,26 @@ public class BasicPlayerLocomotions : MonoBehaviour {
                     if (enemyAI.isSpiked == true)
                     {
                         iFrames += 1;
+
                         takeDamage();
                     }
+
                     else
                     {
-									if (enemyAI.isWounded == true){
-										enemyAI.die();
-									}
-									else{
+
                         enemyAI.getHurt();
-									}
+
                         rb2d.velocity = new Vector2(rb2d.velocity.x, doublejumpPower);
 
                     }
                 }
                 else
                 {
-					if (enemyAI.isWounded == false){
-                    iFrames += 1;
-                    takeDamage();
-					}
+                    if (enemyAI.isWounded == false)
+                    {
+                        iFrames += 1;
+                        takeDamage();
+                    }
                 }
             }
         }
@@ -380,8 +389,8 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
 
 
-        //Basic function that handles jumps
-        void doJump()
+    //Basic function that handles jumps
+    void doJump()
     {
         // If the player is still allowed to jump, check if it's the first jump, or any jumps after, and lower the jump count by one.
         if (jumpCount > 0.0f)
@@ -391,11 +400,12 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             if (jumpCount == jumpMax)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpPower);
-            } else
+            }
+            else
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, doublejumpPower);
             }
- 
+
         }
 
     }
@@ -420,7 +430,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             Physics2D.IgnoreLayerCollision(8, 10, false);
         }
 
-        
+
 
     }
 
@@ -436,7 +446,7 @@ public class BasicPlayerLocomotions : MonoBehaviour {
 
     void takeDamage()
     {
-        
+
 
         if (isImmortal == false)
         {
@@ -467,14 +477,14 @@ public class BasicPlayerLocomotions : MonoBehaviour {
             else
             {
                 director.LoseLevel();
-                
-                
+
+
             }
 
         }
     }
-	
-	    void Flip()
+
+    void Flip()
     {
 
         facingRight = !facingRight;
